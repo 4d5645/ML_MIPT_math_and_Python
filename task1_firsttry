@@ -1,0 +1,26 @@
+import re
+import numpy as np
+
+
+with open('sentences.txt', 'r') as input_file:
+    sentences = input_file.readlines()
+num_sentences = len(sentences)
+with open('sentences.txt', 'r') as inp:
+    y = inp.read().lower()
+with open('sentences.txt', 'w') as out:
+    out.write(y)
+y = re.split('[^a-z]', y)
+y = ' '.join(y).split()
+file = open('sentences.txt', 'w')
+for element in y:
+     file.write(element)
+     file.write('\n')
+file.close()
+dictList = []
+with open('sentences.txt', 'r') as f:
+    for line in f:
+        elements = line.rstrip().split('\n')
+        dictList.append(elements)
+
+num_words = len(dictList)
+matrix = np.zeros((num_sentences, num_words))
